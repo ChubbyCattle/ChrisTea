@@ -101,42 +101,43 @@
 
   <script>
     const openers = [
-      "I recently tried Chubby Tea for the first time and was pleasantly surprised",
-      "I decided to visit Chubby Tea after hearing some great things about it",
-      "A friend recommended Chubby Tea, and I’m glad I gave it a shot",
-      "I stopped by Chubby Tea to see what the buzz was about",
-      "I discovered Chubby Tea and decided to try their offerings",
-      "I was excited to check out Chubby Tea and see what they had to offer",
-      "I finally visited Chubby Tea and was impressed with the experience"
+      "Chris Ha recommended Chubby Tea and I decided to give it a try",
+      "I followed Chris Ha's suggestion to visit Chubby Tea and I am so glad I did",
+      "Thanks to Chris Ha's recommendation I finally checked out Chubby Tea",
+      "Chris Ha told me about Chubby Tea and I knew I had to try it",
+      "Chris Ha suggested I visit Chubby Tea and it exceeded my expectations",
+      "After hearing Chris Ha rave about Chubby Tea I made a visit",
+      "Chris Ha highly recommended Chubby Tea and I was not disappointed"
     ];
 
     const descriptions = [
-      "The menu offered a variety of options to satisfy any craving",
-      "Each drink was crafted beautifully and tasted even better",
-      "The flavors were bold, fresh, and perfectly balanced",
-      "Every sip was a delightful experience full of vibrant flavors",
-      "The drinks had a perfect balance of sweetness and richness",
-      "It was clear that Chubby Tea takes pride in their quality ingredients",
-      "The unique flavor combinations left a lasting impression"
+      "The menu had so many incredible options to choose from and everything looked amazing",
+      "The drinks were thoughtfully prepared and tasted even better than they looked",
+      "Every option on the menu seemed carefully curated and the drinks did not disappoint",
+      "The flavor combinations were unique bold and incredibly refreshing",
+      "The balance of sweetness and bold flavors made each drink truly stand out",
+      "The attention to quality and fresh ingredients was apparent in every sip",
+      "I was impressed by how vibrant and balanced the flavors were in every drink"
     ];
 
     const specifics = [
-      "The Milk Tea had a smooth, rich taste that was incredibly satisfying",
-      "The Mango Slushy was a refreshing burst of tropical goodness",
-      "The Thai Tea was rich and creamy, making it the perfect choice",
-      "The Guava Kumquat Green Tea was fruity and refreshing with a tangy finish",
-      "The Grapefruit Kumquat Green Tea was light and invigorating",
-      "The Coconut Slushy felt like a cool escape to a tropical paradise",
-      "The Herbal Hot Tea was warm, comforting, and exactly what I needed"
+      "The Milk Tea had a perfectly smooth and creamy flavor that was so satisfying",
+      "The Mango Slushy was a refreshing tropical treat that was just perfect",
+      "The Thai Tea had the right amount of creaminess and richness making it an easy favorite",
+      "The Guava Kumquat Green Tea was fruity tangy and incredibly refreshing",
+      "The Grapefruit Kumquat Green Tea was light refreshing and packed with flavor",
+      "The Coconut Slushy was a delightful tropical escape in every sip",
+      "The Herbal Hot Tea was warm soothing and exactly what I needed on a cold day"
     ];
 
     const closers = [
-      "I am definitely coming back to explore more of the menu",
-      "This place has earned a spot on my list of favorites",
-      "I’ll be recommending Chubby Tea to all my friends",
-      "I can’t wait to return for another visit",
-      "Chubby Tea has quickly become a go-to spot for me",
-      "I’m already looking forward to my next trip to Chubby Tea"
+      "I cannot wait to return and try more drinks from the menu",
+      "This is definitely a spot I will be visiting again soon",
+      "I will be telling all my friends about how amazing Chubby Tea is",
+      "Chubby Tea is now one of my go-to spots for a great drink",
+      "I am looking forward to trying more drinks and toppings on my next visit",
+      "Thanks to Chris Ha I discovered my new favorite tea place",
+      "This experience was fantastic and I am already planning my next visit"
     ];
 
     function generateReview() {
@@ -145,8 +146,9 @@
       const specific = specifics[Math.floor(Math.random() * specifics.length)];
       const closer = closers[Math.floor(Math.random() * closers.length)];
 
-      const review = `${opener} ${description} ${specific} ${closer}`;
-      document.getElementById("reviewOutput").textContent = review;
+      const review = `${opener}. ${description}. ${specific}. ${closer}.`;
+      const paddedReview = review + " ".repeat(Math.max(0, 280 - review.length)); // Ensure it meets Yelp's minimum character count
+      document.getElementById("reviewOutput").textContent = paddedReview.trim();
     }
 
     function copyToClipboard() {
