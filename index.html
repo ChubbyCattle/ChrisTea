@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chubby Tea</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      padding: 20px;
+      max-width: 700px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #444;
+    }
+    button {
+      padding: 15px 25px;
+      margin: 10px 5px;
+      background-color: #5cb85c;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #4cae4c;
+    }
+    .output {
+      margin: 15px 0;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 10px 5px;
+      background-color: #0275d8;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 16px;
+      text-align: center;
+    }
+    a:hover {
+      background-color: #025aa5;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      font-size: 18px;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 10px;
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chubby Tea</h1>
+  <p>Click the button below to generate a review. Use the link to leave your feedback!</p>
+
+  <button onclick="generateReview()">Generate a Review</button>
+  <button onclick="copyToClipboard()">Copy to Clipboard</button>
+  <div id="reviewOutput" class="output">Your review will appear here.</div>
+
+  <a href="https://www.example.com/review" target="_blank">Leave Your Feedback</a>
+
+  <h2>Available Drinks</h2>
+  <ul>
+    <li>Milk Tea</li>
+    <li>Milk Green Tea</li>
+    <li>Grapefruit Kumquat Green Tea</li>
+    <li>Guava Kumquat Green Tea</li>
+    <li>Mango Slushy</li>
+    <li>Thai Tea</li>
+    <li>Mango Coconut Slushy</li>
+    <li>Coconut Slushy</li>
+    <li>Herbal Hot Tea</li>
+  </ul>
+
+  <h2>Toppings</h2>
+  <ul>
+    <li>Taro</li>
+    <li>Green Bean</li>
+  </ul>
+
+  <script>
+    const openers = [
+      "I recently tried Chubby Tea for the first time and was pleasantly surprised",
+      "I decided to visit Chubby Tea after hearing some great things about it",
+      "A friend recommended Chubby Tea, and I’m glad I gave it a shot",
+      "I stopped by Chubby Tea to see what the buzz was about",
+      "I discovered Chubby Tea and decided to try their offerings",
+      "I was excited to check out Chubby Tea and see what they had to offer",
+      "I finally visited Chubby Tea and was impressed with the experience"
+    ];
+
+    const descriptions = [
+      "The menu offered a variety of options to satisfy any craving",
+      "Each drink was crafted beautifully and tasted even better",
+      "The flavors were bold, fresh, and perfectly balanced",
+      "Every sip was a delightful experience full of vibrant flavors",
+      "The drinks had a perfect balance of sweetness and richness",
+      "It was clear that Chubby Tea takes pride in their quality ingredients",
+      "The unique flavor combinations left a lasting impression"
+    ];
+
+    const specifics = [
+      "The Milk Tea had a smooth, rich taste that was incredibly satisfying",
+      "The Mango Slushy was a refreshing burst of tropical goodness",
+      "The Thai Tea was rich and creamy, making it the perfect choice",
+      "The Guava Kumquat Green Tea was fruity and refreshing with a tangy finish",
+      "The Grapefruit Kumquat Green Tea was light and invigorating",
+      "The Coconut Slushy felt like a cool escape to a tropical paradise",
+      "The Herbal Hot Tea was warm, comforting, and exactly what I needed"
+    ];
+
+    const closers = [
+      "I am definitely coming back to explore more of the menu",
+      "This place has earned a spot on my list of favorites",
+      "I’ll be recommending Chubby Tea to all my friends",
+      "I can’t wait to return for another visit",
+      "Chubby Tea has quickly become a go-to spot for me",
+      "I’m already looking forward to my next trip to Chubby Tea"
+    ];
+
+    function generateReview() {
+      const opener = openers[Math.floor(Math.random() * openers.length)];
+      const description = descriptions[Math.floor(Math.random() * descriptions.length)];
+      const specific = specifics[Math.floor(Math.random() * specifics.length)];
+      const closer = closers[Math.floor(Math.random() * closers.length)];
+
+      const review = `${opener} ${description} ${specific} ${closer}`;
+      document.getElementById("reviewOutput").textContent = review;
+    }
+
+    function copyToClipboard() {
+      const reviewText = document.getElementById("reviewOutput").textContent;
+      if (reviewText && reviewText !== "Your review will appear here.") {
+        navigator.clipboard.writeText(reviewText).then(() => {
+          alert("Review copied to clipboard!");
+        }).catch(err => {
+          console.error("Failed to copy:", err);
+        });
+      } else {
+        alert("No review to copy! Generate a review first.");
+      }
+    }
+  </script>
+
+</body>
+</html>
